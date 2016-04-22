@@ -1,0 +1,6 @@
+{
+  "countryCode" : "CH",
+  "name" : "China",
+  "capital" : "Beijing",
+  "continent" : "Asia"
+}

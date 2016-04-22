@@ -1,0 +1,45 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cxf="http://camel.apache.org/schema/cxf"
+ 	xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:jaxrs-client="http://cxf.apache.org/jaxrs-client"
+	xmlns:soap="http://cxf.apache.org/bindings/soap"
+	xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd http://cxf.apache.org/jaxrs-client 
+	   http://cxf.apache.org/schemas/jaxrs-client.xsd
+        http://cxf.apache.org/bindings/soap 
+		http://cxf.apache.org/schemas/configuration/soap.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util.xsd
+        http://cxf.apache.org/transports/http/configuration
+        http://cxf.apache.org/schemas/configuration/http-conf.xsd">
+
+	
+   <!-- 
+   	CXF-RS CLIENT:
+   	FOR INVOKING A WEB ADDRESS AND FOR GETTING THE RESULT
+    -->
+	<jaxrs-client:client id="restClient" address="http://localhost:8080/services"
+		serviceClass="org.apache.camel.example.cxfrs.client.CountryResource" >
+		<jaxrs-client:features>
+			<ref bean="loggingFeature" />
+		</jaxrs-client:features>
+        <jaxrs-client:headers>
+             <entry key="Charset" value="UTF-8"/>
+             <entry key="Accept" value="application/json"/>
+        </jaxrs-client:headers>
+       
+        <!--
+        	Data Provider 
+         -->
+        <jaxrs-client:providers>
+			<bean id="jsonDataProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+		</jaxrs-client:providers>
+	</jaxrs-client:client>
+	
+	<bean id="loggingFeature" class="org.apache.cxf.feature.LoggingFeature" />								
+
+</beans>
