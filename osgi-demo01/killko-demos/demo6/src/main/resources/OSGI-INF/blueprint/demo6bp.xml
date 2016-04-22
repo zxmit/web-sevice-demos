@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+    <!-- 实例化 -->
+    <bean id="Calculation" class="com.zxm.osgi.demo.demo6.Impl.Calculation"/>
+    <!-- 发布成OSGI服务 -->
+    <service id="CalculationService" ref="Calculation" interface="com.zxm.osgi.demo.demo2.contract.ICalculation">
+        <service-properties>
+            <entry key="ServiceName" value="Calculation"/>
+        </service-properties>
+    </service>
+
+</blueprint>

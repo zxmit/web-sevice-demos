@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/activemq-demo1/activemq-demo1.iml" filepath="$PROJECT_DIR$/activemq-demo1/activemq-demo1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activemq-demos.iml" filepath="$PROJECT_DIR$/activemq-demos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activemq-spring-demo1/activemq-spring-demo1.iml" filepath="$PROJECT_DIR$/activemq-spring-demo1/activemq-spring-demo1.iml" />
+    </modules>
+  </component>
+</project>
